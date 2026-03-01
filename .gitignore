@@ -1,0 +1,11 @@
+# Keep repo focused on deployable site
+*.zip
+video-frames/
+video-frames-intro/
+compare/
+*-source.html
+.DS_Store
+
+# Python cache (if local scripts are added later)
+__pycache__/
+*.pyc
