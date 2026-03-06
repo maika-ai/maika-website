@@ -1001,6 +1001,10 @@ p {
   align-items: stretch;
 }
 
+.page-hero-grid.copy-only {
+  grid-template-columns: 1fr;
+}
+
 .page-hero-copy {
   display: grid;
   gap: 0.9rem;
@@ -1037,24 +1041,98 @@ p {
   gap: 0.55rem;
 }
 
-.team-gallery {
+.team-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1rem;
 }
 
-.team-gallery .portrait {
+.team-card {
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.02);
-  aspect-ratio: 3 / 4;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  justify-items: center;
+  align-items: start;
+  gap: 0.8rem;
+  padding: 1rem 0.9rem;
 }
 
-.team-gallery img {
+.team-photo {
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(5, 7, 18, 0.35);
+  flex-shrink: 0;
+}
+
+.team-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 20%;
+  filter: grayscale(100%) contrast(1.02) !important;
+  transition: transform 450ms ease, filter 340ms ease;
+}
+
+.team-card:hover .team-photo img,
+.team-card:focus-within .team-photo img {
+  transform: scale(1.04);
+  filter: grayscale(0%) contrast(1) !important;
+}
+
+.team-meta {
+  display: grid;
+  gap: 0.42rem;
+  align-content: start;
+  justify-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.team-meta h3 {
+  font-size: 1.02rem;
+  line-height: 1.25;
+}
+
+.team-role {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+}
+
+.team-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  margin-top: 0.12rem;
+  border-radius: 0.45rem;
+  border: 1px solid rgba(10, 102, 194, 0.9);
+  background: #0a66c2;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0;
+  transition: background 200ms ease, border-color 200ms ease, transform 200ms ease;
+}
+
+.linkedin-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  display: block;
+  fill: #ffffff;
+}
+
+.team-link:hover,
+.team-link:focus-visible {
+  background: #1b76d1;
+  border-color: #1b76d1;
+  transform: translateY(-1px);
 }
 
 .compare-grid {
@@ -1276,6 +1354,10 @@ p {
   gap: 1rem;
 }
 
+.grid-2.grid-single {
+  grid-template-columns: 1fr;
+}
+
 .spacer-xs { height: 0.35rem; }
 .spacer-sm { height: 0.75rem; }
 .spacer-md { height: 1.25rem; }
@@ -1313,6 +1395,18 @@ p {
 .home-page .nav-wrap {
   width: min(1260px, calc(100% - 2rem));
   margin-inline: auto;
+}
+
+.site-header .brand-label {
+  display: none;
+}
+
+.site-header .brand img {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  border: 0;
+  background: transparent;
 }
 
 .home-page .brand-label {
@@ -1999,8 +2093,8 @@ p {
     grid-template-columns: 1fr;
   }
 
-  .team-gallery {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .page-hero-copy {
@@ -2110,7 +2204,7 @@ p {
     grid-template-columns: 1fr;
   }
 
-  .team-gallery {
+  .team-grid {
     grid-template-columns: 1fr;
   }
 
