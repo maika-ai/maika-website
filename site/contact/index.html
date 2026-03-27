@@ -50,7 +50,7 @@
               <span class="eyebrow">Contact</span>
               <h1 class="gradient-text" data-split>Get in Touch with Us</h1>
               <p class="lead">Have questions or need AI solutions? Let us know by filling out the form and we&apos;ll be in touch.</p>
-              <div class="code-pill">anna.karcher@maika-ai.com</div>
+              <div class="code-pill">info@maika-ai.com</div>
             </div>
             <div class="page-hero-visual" style="display:grid;place-items:center;padding:1rem;">
               <img src="/assets/images/fKsR7OficZ8uLdzrI7sGxJIar9M.png" alt="Maika logo graphic" style="max-width:220px;filter:drop-shadow(0 18px 30px rgba(129,74,200,.35));">
@@ -71,7 +71,7 @@
             <div class="contact-list">
               <div class="contact-item">
                 <small>E-mail</small>
-                <a href="mailto:anna.karcher@maika-ai.com"><strong>anna.karcher@maika-ai.com</strong></a>
+                <a href="mailto:info@maika-ai.com"><strong>info@maika-ai.com</strong></a>
               </div>
               <div class="contact-item">
                 <small>Response time</small>
@@ -85,7 +85,11 @@
           </aside>
 
           <section class="contact-form-card reveal pop">
-            <form class="contact-form" data-contact-form>
+            <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-contact-form>
+              <input type="hidden" name="form-name" value="contact">
+              <p hidden>
+                <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
+              </p>
               <div class="form-row">
                 <div class="form-field">
                   <label for="first-name">First Name</label>

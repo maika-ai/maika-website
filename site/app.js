@@ -323,11 +323,58 @@
   const initForms = () => {
     const contactForm = document.querySelector('[data-contact-form]');
     if (contactForm) {
-      contactForm.addEventListener('submit', (e) => {
+      const encode = (data) =>
+        Array.from(data.entries())
+          .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+          .join('&');
+
+      contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const status = contactForm.querySelector('[data-form-status]');
+
         if (status) {
-          status.textContent = 'Message captured. Replace this handler with your backend or Formspree endpoint.';
+          status.textContent = '';
+        }
+
+        const formData = new FormData(contactForm);
+
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+          if (status) {
+            status.textContent = 'Local preview does not submit forms. Push to Netlify to receive messages in your Netlify Forms inbox.';
+          }
+          return;
+        }
+
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.setAttribute('aria-busy', 'true');
+        }
+
+        try {
+          const response = await fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: encode(formData),
+          });
+
+          if (!response.ok) {
+            throw new Error('Form submission failed');
+          }
+
+          contactForm.reset();
+          if (status) {
+            status.textContent = 'Message sent. We will get back to you soon.';
+          }
+        } catch (error) {
+          if (status) {
+            status.textContent = 'Submission failed. Please email info@maika-ai.com directly.';
+          }
+        } finally {
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.removeAttribute('aria-busy');
+          }
         }
       });
     }
