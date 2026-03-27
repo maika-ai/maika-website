@@ -125,8 +125,12 @@
               <span class="brand-label"><strong>Maika</strong><span>Join our newsletter</span></span>
             </a>
             <p>Get updates on pilots, product releases, and workplace wellbeing insights.</p>
-            <form class="newsletter-form" data-newsletter-form>
-              <input class="input" type="email" placeholder="Email address" aria-label="Email address">
+            <form class="newsletter-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-newsletter-form>
+              <input type="hidden" name="form-name" value="newsletter">
+              <p hidden>
+                <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
+              </p>
+              <input class="input" type="email" name="email" placeholder="Email address" aria-label="Email address" required>
               <button class="btn btn-primary" type="submit">Subscribe</button>
             </form>
           </section>

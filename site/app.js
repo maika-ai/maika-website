@@ -380,10 +380,59 @@
     }
 
     document.querySelectorAll('[data-newsletter-form]').forEach((form) => {
-      form.addEventListener('submit', (e) => {
+      const encode = (data) =>
+        Array.from(data.entries())
+          .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+          .join('&');
+
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const input = form.querySelector('input');
-        if (input) input.value = '';
+        const input = form.querySelector('input[name="email"]');
+        let status = form.querySelector('[data-newsletter-status]');
+        if (!status) {
+          status = document.createElement('div');
+          status.className = 'form-status';
+          status.setAttribute('data-newsletter-status', '');
+          status.setAttribute('aria-live', 'polite');
+          form.appendChild(status);
+        }
+        status.textContent = '';
+
+        const formData = new FormData(form);
+
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+          status.textContent = 'Local preview does not submit forms. Push to Netlify to receive newsletter signups.';
+          return;
+        }
+
+        const submitButton = form.querySelector('button[type="submit"]');
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.setAttribute('aria-busy', 'true');
+        }
+
+        try {
+          const response = await fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: encode(formData),
+          });
+
+          if (!response.ok) {
+            throw new Error('Newsletter signup failed');
+          }
+
+          form.reset();
+          status.textContent = 'Subscribed. We will email you when updates are ready.';
+        } catch (error) {
+          status.textContent = 'Subscription failed. Please try again later.';
+          if (input) input.focus();
+        } finally {
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.removeAttribute('aria-busy');
+          }
+        }
       });
     });
   };
