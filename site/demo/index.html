@@ -54,8 +54,15 @@
 
     <main>
       <section class="section hero hero-cinematic" data-hero-intro>
-            <section class="user-input-section">
-              <div class="input-container">
+        <section class="user-input-section">
+          <form class="input-container wizard-form" id="demoWizardForm" novalidate>
+            <div class="wizard-header">
+              <p class="wizard-kicker">Maika demo</p>
+              <p class="wizard-progress"><span data-step-current>1</span> / <span data-step-total>5</span></p>
+            </div>
+            <!-- First section - Age and Gender -->
+            <section class="wizard-step is-active" data-step="1">
+              <div class="field-grid">
                 <div class="age-input-container">
                   <label for="age">Age</label>
                   <input class="age-input" id="age" name="age" type="number" inputmode="numeric" min="0" step="1" required>
@@ -70,12 +77,39 @@
                     <option value="prefer-not-to-say">Prefer not to say</option>
                   </select>
                 </div>
-                <button class="btn btn-primary" type="submit">Listen Music</button>
               </div>
-              
-          </section>
-        </div>
-      </section>
+            </section>
+
+            <!-- Second section listen to music -->
+            <section class="wizard-step" data-step="2" aria-hidden="true">
+              <p>Listen to music</p>
+            </section>
+
+            <!-- Third section scan face -->
+            <section class="wizard-step" data-step="3" aria-hidden="true">
+              <div class="field-grid field-grid-single">
+                <p>Scan face</p>
+              </div>
+            </section>
+            
+            <!-- Fourth section, user will select their arousal lever after listening to music using slider -->
+            <section class="wizard-step" data-step="4" aria-hidden="true">
+              <p>Select arousal lever</p>
+            </section>
+            
+            <!-- Fifth section, score and user arousal lever will be visualized here -->
+            <section class="wizard-step" data-step="5" aria-hidden="true">
+              <p>Score and arousal lever visualization</p>
+            </section>
+
+
+            <p class="wizard-error" data-wizard-error aria-live="polite"></p>
+            <div class="wizard-actions">
+              <button class="btn btn-ghost" type="button" data-action="back" disabled>Back</button>
+              <button class="btn btn-primary" type="button" data-action="next">Next</button>
+            </div>
+          </form>
+        </section>
       </section>
     </main>
 
@@ -129,6 +163,6 @@
   </div>
 
   <script src="/app.js" defer></script>
-  <script src="site/demo/js/demo.js"></script>
+  <script src="/demo/js/demo.js" defer type="module"></script>
 </body>
 </html>

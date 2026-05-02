@@ -3,18 +3,62 @@
   align-items: center;
   justify-content: center;
   padding: 2.25rem 1rem;
+  overflow: hidden;
 }
 
 .input-container {
   width: min(680px, 100%);
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem 1.25rem;
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 3px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.02);
   padding: 1.5rem;
   box-shadow: var(--shadow);
+}
+
+.wizard-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.wizard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wizard-kicker,
+.wizard-progress {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+}
+
+.wizard-step {
+  min-height: 156px;
+  opacity: 0;
+  transform: translateX(28px);
+  pointer-events: none;
+  position: absolute;
+  width: calc(100% - 3rem);
+  transition: opacity 260ms ease, transform 260ms ease;
+}
+
+.wizard-step.is-active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  position: relative;
+  width: 100%;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.25rem;
+}
+
+.field-grid-single {
+  grid-template-columns: 1fr;
 }
 
 .age-input-container,
@@ -29,7 +73,8 @@
   font-size: 0.9rem;
 }
 
-.age-input {
+.age-input,
+.input-select {
   width: 100%;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -41,14 +86,7 @@
 }
 
 .input-select {
-  width: 100%;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.03);
-  padding: 0.85rem 2.5rem 0.85rem 0.95rem;
-  outline: none;
-  transition: border-color 150ms ease, box-shadow 150ms ease;
-  color: #f2f5ff;
+  padding-right: 2.5rem;
   cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
@@ -73,10 +111,41 @@
   box-shadow: 0 0 0 3px rgba(223, 122, 254, 0.12);
 }
 
-.input-container .btn {
-  grid-column: 1 / -1;
-  justify-self: start;
-  margin-top: 0.25rem;
+.wizard-review h3 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+}
+
+.wizard-review p {
+  margin: 0;
+  color: var(--text-soft);
+}
+
+.wizard-error {
+  min-height: 1.25rem;
+  margin: 0;
+  color: #ff9ab5;
+  font-size: 0.9rem;
+}
+
+.wizard-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.wizard-actions .btn {
+  min-width: 140px;
+}
+
+.wizard-actions .btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* `.btn { display: inline-flex }` in theme CSS overrides the UA `[hidden]` rule; enforce hide when JS sets hidden=true */
+.wizard-actions .btn[hidden] {
+  display: none !important;
 }
 
 @media (max-width: 700px) {
@@ -85,13 +154,31 @@
   }
 
   .input-container {
-    grid-template-columns: 1fr;
     padding: 1rem;
+  }
+
+  .wizard-step {
+    width: calc(100% - 2rem);
+    min-height: 180px;
+  }
+
+  .field-grid {
+    grid-template-columns: 1fr;
     gap: 0.85rem;
   }
 
-  .input-container .btn {
+  .wizard-actions {
+    flex-direction: column;
+  }
+
+  .wizard-actions .btn {
     width: 100%;
-    justify-self: stretch;
+    min-width: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wizard-step {
+    transition: none;
   }
 }
