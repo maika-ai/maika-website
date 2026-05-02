@@ -1,3 +1,9 @@
+import { fetchMusicData, MUSIC_ENDED_EVENT } from "./music_streamer.js";
+
+// fetch the music data at the start of the page and load
+
+await fetchMusicData();
+
 (() => {
   const wizardForm = document.getElementById("demoWizardForm");
   if (!wizardForm) return;
@@ -11,8 +17,8 @@
   const stepTotal = wizardForm.querySelector("[data-step-total]");
   const errorMessage = wizardForm.querySelector("[data-wizard-error]");
 
-  let age = null
-  let gender = null
+  let age = null;
+  let gender = null;
   let currentStep = 0;
   const lastStep = steps.length - 1;
 
@@ -33,11 +39,8 @@
   const validateStep = () => {
     const activeFields = getActiveFields();
 
-    console.log("ActiveFields", activeFields);
-
     for (const field of activeFields) {
       if (!field.checkValidity()) {
-        console.log("Current Field", field, field.checkValidity());
         field.reportValidity();
         return false;
       }
@@ -45,7 +48,7 @@
     return true;
   };
 
-  // Updated the next step in the withard when the next button is clicked
+  // Advance wizard step when Next is clicked (after validation).
   const updateStep = (targetStep) => {
     if (targetStep == 1) {
       callUserInformationSubmitted();
@@ -60,8 +63,6 @@
     steps.forEach((step, index) => {
       const isActive = index === currentStep;
 
-      console.log("Current active", step, isActive);
-
       step.classList.toggle("is-active", isActive);
       step.setAttribute("aria-hidden", String(!isActive));
     });
@@ -72,10 +73,8 @@
     const isFirst = currentStep === 0;
     const isLast = currentStep === lastStep;
 
-    console.log("is last", isLast);
-
     if (backButton) backButton.disabled = isFirst;
-    // if (nextButton) nextButton.hidden = isLast;
+    if (nextButton) nextButton.hidden = isLast;
 
     const nextFocusable = steps[currentStep].querySelector(
       "input, select, textarea, button",
@@ -83,11 +82,14 @@
     if (nextFocusable) nextFocusable.focus();
   };
 
+  document.addEventListener(MUSIC_ENDED_EVENT, () => {
+    if (currentStep === 1) updateStep(2);
+  });
+
   const callUserInformationSubmitted = () => {
     age = wizardForm.querySelector("[name=age]").value;
     gender = wizardForm.querySelector("[name=gender]").value;
 
-    console.log("Age and Gender", age, gender)
   };
 
   //   Listener for both back and next button

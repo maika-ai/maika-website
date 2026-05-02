@@ -1,168 +1,394 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Maika - AI Music for Your Health</title>
-  <meta name="description" content="Real-time AI-powered adaptive music that uses biometrics to support stress relief, focus, recovery, and wellbeing.">
-  <meta property="og:title" content="Maika - AI Music for Your Health">
-  <meta property="og:description" content="AI-powered adaptive music for stress relief, focus, and recovery.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="/assets/images/HMAXl2OBQIIUUaPBbnSBuo5EQYE.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Maika - AI Music for Your Health">
-  <meta name="twitter:description" content="AI-powered adaptive music for stress relief, focus, and recovery.">
-  <meta name="twitter:image" content="/assets/images/HMAXl2OBQIIUUaPBbnSBuo5EQYE.png">
-  <link rel="icon" href="/assets/images/am47mjWFDKrmVUvpsmW7KI1MFg.jpg" media="(prefers-color-scheme: light)">
-  <link rel="icon" href="/assets/images/NXjUGkhb1Qk6O8iTyi1xHE7w.png" media="(prefers-color-scheme: dark)">
-  <link rel="apple-touch-icon" href="/assets/images/1ZL40abWJwRaa4sHTEUOzE3Prk.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=20260306-teamfix">
-  <link rel="stylesheet" href="/demo/css/demo.css?v=20260501-selectfix">
-</head>
-<body class="home-page">
-  <div class="site-bg" aria-hidden="true"></div>
-  <div class="page-shell">
-    <header class="site-header">
-      <div class="container nav-wrap">
-        <a class="brand" href="/">
-          <img src="/assets/images/fKsR7OficZ8uLdzrI7sGxJIar9M.png" alt="Maika logo">
-          <span class="brand-label"><strong>Maika Health</strong><span>AI music for your health</span></span>
-        </a>
-        <nav class="nav-links" aria-label="Primary">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Maika - AI Music for Your Health</title>
+    <meta
+      name="description"
+      content="Real-time AI-powered adaptive music that uses biometrics to support stress relief, focus, recovery, and wellbeing."
+    />
+    <meta property="og:title" content="Maika - AI Music for Your Health" />
+    <meta
+      property="og:description"
+      content="AI-powered adaptive music for stress relief, focus, and recovery."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="/assets/images/HMAXl2OBQIIUUaPBbnSBuo5EQYE.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Maika - AI Music for Your Health" />
+    <meta
+      name="twitter:description"
+      content="AI-powered adaptive music for stress relief, focus, and recovery."
+    />
+    <meta
+      name="twitter:image"
+      content="/assets/images/HMAXl2OBQIIUUaPBbnSBuo5EQYE.png"
+    />
+    <link
+      rel="icon"
+      href="/assets/images/am47mjWFDKrmVUvpsmW7KI1MFg.jpg"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="icon"
+      href="/assets/images/NXjUGkhb1Qk6O8iTyi1xHE7w.png"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/1ZL40abWJwRaa4sHTEUOzE3Prk.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css?v=20260306-teamfix" />
+    <link rel="stylesheet" href="/demo/css/demo.css?v=20260501-selectfix" />
+  </head>
+  <body class="home-page">
+    <div class="site-bg" aria-hidden="true"></div>
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="container nav-wrap">
+          <a class="brand" href="/">
+            <img
+              src="/assets/images/fKsR7OficZ8uLdzrI7sGxJIar9M.png"
+              alt="Maika logo"
+            />
+            <span class="brand-label"
+              ><strong>Maika Health</strong
+              ><span>AI music for your health</span></span
+            >
+          </a>
+          <nav class="nav-links" aria-label="Primary">
+            <a data-nav-link href="/">Home</a>
+            <a data-nav-link href="/about/">About</a>
+            <a data-nav-link href="/blog/">Blog</a>
+            <a data-nav-link href="/contact/">Contact</a>
+            <a data-nav-link href="/demo/">Demo</a>
+          </nav>
+          <div class="nav-actions">
+            <a
+              class="btn btn-primary small"
+              data-magnetic
+              href="https://cal.eu/maika-ai/maika-intro-call"
+              target="_blank"
+              rel="noopener"
+              >Book a call</a
+            >
+            <button
+              class="btn btn-ghost small mobile-menu-btn"
+              type="button"
+              data-mobile-toggle
+              aria-expanded="false"
+              aria-label="Toggle menu"
+            >
+              Menu
+            </button>
+          </div>
+        </div>
+        <div class="container mobile-menu" data-mobile-menu>
           <a data-nav-link href="/">Home</a>
           <a data-nav-link href="/about/">About</a>
           <a data-nav-link href="/blog/">Blog</a>
           <a data-nav-link href="/contact/">Contact</a>
-          <a data-nav-link href="/demo/">Demo</a>
-        </nav>
-        <div class="nav-actions">
-          <a class="btn btn-primary small" data-magnetic href="https://cal.eu/maika-ai/maika-intro-call" target="_blank" rel="noopener">Book a call</a>
-          <button class="btn btn-ghost small mobile-menu-btn" type="button" data-mobile-toggle aria-expanded="false" aria-label="Toggle menu">Menu</button>
+          <a
+            class="btn btn-primary small"
+            href="https://cal.eu/maika-ai/maika-intro-call"
+            target="_blank"
+            rel="noopener"
+            >Book a call</a
+          >
         </div>
-      </div>
-      <div class="container mobile-menu" data-mobile-menu>
-        <a data-nav-link href="/">Home</a>
-        <a data-nav-link href="/about/">About</a>
-        <a data-nav-link href="/blog/">Blog</a>
-        <a data-nav-link href="/contact/">Contact</a>
-        <a class="btn btn-primary small" href="https://cal.eu/maika-ai/maika-intro-call" target="_blank" rel="noopener">Book a call</a>
-      </div>
-    </header>
+      </header>
 
-    <main>
-      <section class="section hero hero-cinematic" data-hero-intro>
-        <section class="user-input-section">
-          <form class="input-container wizard-form" id="demoWizardForm" novalidate>
-            <div class="wizard-header">
-              <p class="wizard-kicker">Maika demo</p>
-              <p class="wizard-progress"><span data-step-current>1</span> / <span data-step-total>5</span></p>
-            </div>
-            <!-- First section - Age and Gender -->
-            <section class="wizard-step is-active" data-step="1">
-              <div class="field-grid">
-                <div class="age-input-container">
-                  <label for="age">Age</label>
-                  <input class="age-input" id="age" name="age" type="number" inputmode="numeric" min="0" step="1" required>
-                </div>
-                <div class="gender-select-container">
-                  <label for="gender">Gender</label>
-                  <select class="input-select" id="gender" name="gender" required>
-                    <option value="" selected disabled>Select gender</option>
-                    <option value="female">Female</option>
-                    <option value="male">Male</option>
-                    <option value="non-binary">Non-binary</option>
-                    <option value="prefer-not-to-say">Prefer not to say</option>
-                  </select>
-                </div>
+      <main>
+        <section class="section hero hero-cinematic" data-hero-intro>
+          <section class="user-input-section">
+            <form
+              class="input-container wizard-form"
+              id="demoWizardForm"
+              novalidate
+            >
+              <div class="wizard-header">
+                <p class="wizard-kicker">Maika demo</p>
+                <p class="wizard-progress">
+                  <span data-step-current>1</span> /
+                  <span data-step-total>5</span>
+                </p>
               </div>
-            </section>
+              <!-- First section - Age and Gender -->
+              <section class="wizard-step is-active" data-step="1">
+                <div class="field-grid">
+                  <div class="age-input-container">
+                    <label for="age">Age</label>
+                    <input
+                      class="age-input"
+                      id="age"
+                      name="age"
+                      type="number"
+                      inputmode="numeric"
+                      min="0"
+                      step="1"
+                      required
+                    />
+                  </div>
+                  <div class="gender-select-container">
+                    <label for="gender">Gender</label>
+                    <select
+                      class="input-select"
+                      id="gender"
+                      name="gender"
+                      required
+                    >
+                      <option value="" selected disabled>Select gender</option>
+                      <option value="female">Female</option>
+                      <option value="male">Male</option>
+                      <option value="non-binary">Non-binary</option>
+                      <option value="prefer-not-to-say">
+                        Prefer not to say
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </section>
 
-            <!-- Second section listen to music -->
-            <section class="wizard-step" data-step="2" aria-hidden="true">
-              <p>Listen to music</p>
-            </section>
+              <!-- Second section listen to music -->
+              <section class="wizard-step" data-step="2" aria-hidden="true">
+                <div class="music-player">
+                  <div class="music-player__field">
+                    <label class="music-player__label" for="music-select"
+                      >Select a song</label
+                    >
+                    <select id="music-select" class="input-select" name="music">
+                      <option value="">— Choose a track —</option>
+                    </select>
+                  </div>
 
-            <!-- Third section scan face -->
-            <section class="wizard-step" data-step="3" aria-hidden="true">
-              <div class="field-grid field-grid-single">
-                <p>Scan face</p>
+                  <audio
+                    id="audio-player"
+                    class="music-player__native"
+                    controls
+                    hidden
+                  >
+                    Your browser does not support the audio element.
+                  </audio>
+
+                  <div class="music-player__deck" aria-label="Music playback">
+                    <div class="song-info">
+                      <h2 class="song-info__title" id="title">Song Title</h2>
+                      <p class="song-info__artist" id="artist">Artist Name</p>
+                    </div>
+
+                    <div class="progress-container">
+                      <input
+                        class="music-player__range music-player__range--progress"
+                        type="range"
+                        id="progress-bar"
+                        min="0"
+                        max="100"
+                        value="0"
+                        aria-label="Playback position"
+                      />
+                      <div class="time-display">
+                        <span id="current-time">0:00</span>
+                        <span class="time-display__sep">/</span>
+                        <span id="duration">0:00</span>
+                      </div>
+                    </div>
+
+                    <div class="controls">
+                      <button
+                        class="music-player__ctrl-btn"
+                        id="prev-btn"
+                        type="button"
+                        aria-label="Previous track"
+                      >
+                        ⏮
+                      </button>
+                      <button
+                        class="music-player__ctrl-btn"
+                        id="rewind-btn"
+                        type="button"
+                        aria-label="Rewind 10 seconds"
+                      >
+                        −10s
+                      </button>
+                      <button
+                        class="music-player__ctrl-btn music-player__ctrl-btn--primary"
+                        id="play-pause-btn"
+                        type="button"
+                        aria-label="Play or pause"
+                      >
+                        ▶
+                      </button>
+                      <button
+                        class="music-player__ctrl-btn"
+                        id="forward-btn"
+                        type="button"
+                        aria-label="Forward 10 seconds"
+                      >
+                        +10s
+                      </button>
+                      <button
+                        class="music-player__ctrl-btn"
+                        id="next-btn"
+                        type="button"
+                        aria-label="Next track"
+                      >
+                        ⏭
+                      </button>
+                    </div>
+
+                    <div class="volume-container">
+                      <span class="volume-container__icon" aria-hidden="true"
+                        >🔊</span
+                      >
+                      <input
+                        class="music-player__range music-player__range--volume"
+                        type="range"
+                        id="volume-slider"
+                        min="0"
+                        max="1"
+                        step="0.1"
+                        value="1"
+                        aria-label="Volume"
+                      />
+                    </div>
+
+                    <audio id="main-audio" src=""></audio>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Third section scan face -->
+              <section class="wizard-step" data-step="3" aria-hidden="true">
+                <div class="field-grid field-grid-single">
+                  <p>Scan face</p>
+                </div>
+              </section>
+
+              <!-- Fourth section, user will select their arousal lever after listening to music using slider -->
+              <section class="wizard-step" data-step="4" aria-hidden="true">
+                <p>Select arousal lever</p>
+              </section>
+
+              <!-- Fifth section, score and user arousal lever will be visualized here -->
+              <section class="wizard-step" data-step="5" aria-hidden="true">
+                <p>Score and arousal lever visualization</p>
+              </section>
+
+              <p class="wizard-error" data-wizard-error aria-live="polite"></p>
+              <div class="wizard-actions">
+                <button
+                  class="btn btn-ghost"
+                  type="button"
+                  data-action="back"
+                  disabled
+                >
+                  Back
+                </button>
+                <button
+                  class="btn btn-primary"
+                  type="button"
+                  data-action="next"
+                >
+                  Next
+                </button>
               </div>
-            </section>
-            
-            <!-- Fourth section, user will select their arousal lever after listening to music using slider -->
-            <section class="wizard-step" data-step="4" aria-hidden="true">
-              <p>Select arousal lever</p>
-            </section>
-            
-            <!-- Fifth section, score and user arousal lever will be visualized here -->
-            <section class="wizard-step" data-step="5" aria-hidden="true">
-              <p>Score and arousal lever visualization</p>
-            </section>
-
-
-            <p class="wizard-error" data-wizard-error aria-live="polite"></p>
-            <div class="wizard-actions">
-              <button class="btn btn-ghost" type="button" data-action="back" disabled>Back</button>
-              <button class="btn btn-primary" type="button" data-action="next">Next</button>
-            </div>
-          </form>
-        </section>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="container footer-inner">
-        <div class="footer-top">
-          <section class="newsletter reveal">
-            <a class="brand" href="/">
-              <img src="/assets/images/fKsR7OficZ8uLdzrI7sGxJIar9M.png" alt="Maika logo">
-              <span class="brand-label"><strong>Maika</strong><span>Join our newsletter</span></span>
-            </a>
-            <p>Get updates about personalized AI music, biometrics, and product milestones.</p>
-            <form class="newsletter-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-newsletter-form>
-              <input type="hidden" name="form-name" value="newsletter">
-              <p hidden>
-                <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
-              </p>
-              <input class="input" type="email" name="email" placeholder="Email address" aria-label="Email address" required>
-              <button class="btn btn-primary" type="submit">Subscribe</button>
             </form>
           </section>
+        </section>
+      </main>
 
-          <div class="footer-links reveal">
-            <section class="footer-col">
-              <h4>Links</h4>
-              <a href="/#services">Services</a>
-              <a href="/#process">Process</a>
-              <a href="/#case-studies">Case studies</a>
-              <a href="/#benefits">Pricing</a>
+      <footer class="footer">
+        <div class="container footer-inner">
+          <div class="footer-top">
+            <section class="newsletter reveal">
+              <a class="brand" href="/">
+                <img
+                  src="/assets/images/fKsR7OficZ8uLdzrI7sGxJIar9M.png"
+                  alt="Maika logo"
+                />
+                <span class="brand-label"
+                  ><strong>Maika</strong><span>Join our newsletter</span></span
+                >
+              </a>
+              <p>
+                Get updates about personalized AI music, biometrics, and product
+                milestones.
+              </p>
+              <form
+                class="newsletter-form"
+                name="newsletter"
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                data-newsletter-form
+              >
+                <input type="hidden" name="form-name" value="newsletter" />
+                <p hidden>
+                  <label
+                    >Don’t fill this out if you’re human:
+                    <input name="bot-field"
+                  /></label>
+                </p>
+                <input
+                  class="input"
+                  type="email"
+                  name="email"
+                  placeholder="Email address"
+                  aria-label="Email address"
+                  required
+                />
+                <button class="btn btn-primary" type="submit">Subscribe</button>
+              </form>
             </section>
-            <section class="footer-col">
-              <h4>Pages</h4>
-              <a href="/">Home</a>
-              <a href="/about/">About</a>
-              <a href="/blog/">Blog</a>
-              <a href="/contact/">Contact</a>
-              <a href="/404.html">404</a>
-            </section>
-            <section class="footer-col">
-              <h4>Socials</h4>
-              <a href="https://www.linkedin.com/company/maika-ai/" target="_blank" rel="noopener">LinkedIn</a>
-            </section>
+
+            <div class="footer-links reveal">
+              <section class="footer-col">
+                <h4>Links</h4>
+                <a href="/#services">Services</a>
+                <a href="/#process">Process</a>
+                <a href="/#case-studies">Case studies</a>
+                <a href="/#benefits">Pricing</a>
+              </section>
+              <section class="footer-col">
+                <h4>Pages</h4>
+                <a href="/">Home</a>
+                <a href="/about/">About</a>
+                <a href="/blog/">Blog</a>
+                <a href="/contact/">Contact</a>
+                <a href="/404.html">404</a>
+              </section>
+              <section class="footer-col">
+                <h4>Socials</h4>
+                <a
+                  href="https://www.linkedin.com/company/maika-ai/"
+                  target="_blank"
+                  rel="noopener"
+                  >LinkedIn</a
+                >
+              </section>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <span
+              >© <span data-year></span> Maika AI. All rights reserved.</span
+            >
           </div>
         </div>
+      </footer>
+    </div>
 
-        <div class="footer-bottom">
-          <span>© <span data-year></span> Maika AI. All rights reserved.</span>
-        </div>
-      </div>
-    </footer>
-  </div>
-
-  <script src="/app.js" defer></script>
-  <script src="/demo/js/demo.js" defer type="module"></script>
-</body>
+    <script src="/app.js" defer></script>
+    <script src="/demo/js/demo.js" defer type="module"></script>
+  </body>
 </html>
